@@ -1,5 +1,5 @@
 <?php
-class Cart
+class E_Cart
 {
     public $id;
     public $userId;

@@ -1,5 +1,5 @@
 <?php
-class BillDetails
+class E_BillDetails
 {
     public $id;
     public $billId;

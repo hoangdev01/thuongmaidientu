@@ -1,5 +1,5 @@
 <?php
-class Chat
+class E_Chat
 {
     public $id;
     public $sendId;

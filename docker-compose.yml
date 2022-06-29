@@ -33,11 +33,14 @@ services:
     networks:
       - app-network
   php:
-    image: php:7.4-fpm-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: "php_${APP_NAME}"
     user: "${UID:-1000}:${GID:-1000}"
     volumes:
       - "./src:/var/www/html"
+      - "./php.ini:/usr/local/etc/php/php.ini"
     ports:
       - "9000:9000"
     networks:

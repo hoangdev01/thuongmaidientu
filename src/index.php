@@ -1,3 +1,8 @@
 <?php
-echo "hello world"
 ?>
+
+<form action="./router/auth.php?login" method="post">
+    <input type="text" name="username">
+    <input type="password" name="password">
+    <input type="submit" name="submit" id="submit">
+</form>

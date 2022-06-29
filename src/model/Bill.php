@@ -1,11 +1,10 @@
 <?php
-class Product
+class E_Bill
 {
     public $id;
     public $userId;
     public $price;
     public $date;
-    public $accountId;
     public $status;
     public function __construct($id, $userId, $price, $date, $accountId, $status)
     {
@@ -13,8 +12,10 @@ class Product
         $this->userId=$userId;
         $this->price=$price;
         $this->date=$date;
-        $this->accountId=$accountId;
         $this->status=$status;
     }
+}
+class Bill{
+    
 }
 ?>
