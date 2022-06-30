@@ -1,20 +1,25 @@
 <?php
-class E_User
-{
-    public $id;
-    public $name;
-    public $birthday;
-    public $address;
-    public $accountId;
-    public $avatarPath;
-    public function __construct($id, $name, $birthday, $address, $accountId, $avatarPath)
+include_once("entity/E_User.php");
+include_once("Database.php");
+class User{
+    public function __construct()
     {
-        $this->id=$id;
-        $this->name=$name;
-        $this->birthday=$birthday;
-        $this->address=$address;
-        $this->accountId=$accountId;
-        $this->avatarPath=$avatarPath;
+        $this->link=Database::getLink();
+    }
+    public function getAll(){
+        
+    }
+    public function show(){
+
+    }
+    public function create(){
+
+    }
+    public function update(){
+
+    }
+    public function delete(){
+
     }
 }
 ?>

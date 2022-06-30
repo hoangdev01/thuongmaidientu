@@ -1,14 +1,25 @@
 <?php
-class E_Category
-{
-    public $id;
-    public $name;
-    public $description;
-    public function __construct($id, $name, $description)
+include_once("entity/E_Category.php");
+include_once("Database.php");
+class Category{
+    public function __construct()
     {
-        $this->id=$id;
-        $this->name=$name;
-        $this->description=$description;
+        $this->link=Database::getLink();
+    }
+    public function getAll(){
+        
+    }
+    public function show(){
+
+    }
+    public function create(){
+
+    }
+    public function update(){
+
+    }
+    public function delete(){
+
     }
 }
 ?>

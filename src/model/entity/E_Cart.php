@@ -1,16 +1,16 @@
 <?php
-class E_BillDetails
+
+class E_Cart
 {
     public $id;
-    public $billId;
+    public $userId;
     public $productId;
     public $amount;
-    public function __construct($id, $billId, $productId, $amount)
+    public function __construct($id, $userId, $productId, $amount)
     {
         $this->id=$id;
-        $this->billId=$billId;
+        $this->userId=$userId;
         $this->productId=$productId;
         $this->amount=$amount;
     }
 }
-?>

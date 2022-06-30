@@ -1,7 +1,7 @@
 <?php
-include_once("entity/E_Cart.php");
+include_once("entity/E_BillDetail.php");
 include_once("Database.php");
-class Cart{
+class BillDetail{
     public function __construct()
     {
         $this->link=Database::getLink();

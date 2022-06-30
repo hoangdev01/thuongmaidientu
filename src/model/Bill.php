@@ -1,21 +1,25 @@
 <?php
-class E_Bill
-{
-    public $id;
-    public $userId;
-    public $price;
-    public $date;
-    public $status;
-    public function __construct($id, $userId, $price, $date, $accountId, $status)
-    {
-        $this->id=$id;
-        $this->userId=$userId;
-        $this->price=$price;
-        $this->date=$date;
-        $this->status=$status;
-    }
-}
+include_once("Database.php");
+include_once("entity/E_Bill.php");
 class Bill{
-    
+    public function __construct()
+    {
+        $this->link=Database::getLink();
+    }
+    public function getAll(){
+        
+    }
+    public function show(){
+
+    }
+    public function create(){
+
+    }
+    public function update(){
+
+    }
+    public function delete(){
+
+    }
 }
 ?>

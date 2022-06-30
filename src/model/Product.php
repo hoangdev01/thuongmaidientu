@@ -1,22 +1,25 @@
 <?php
-class E_Product
-{
-    public $id;
-    public $name;
-    public $description;
-    public $categoryId;
-    public $price;
-    public $userId;
-    public $imagePath;
-    public function __construct($id, $name, $description, $categoryId, $price, $userId, $imagePath)
+include_once("entity/E_Product.php");
+include_once("Database.php");
+class Product{
+    public function __construct()
     {
-        $this->id=$id;
-        $this->name=$name;
-        $this->description=$description;
-        $this->categoryId=$categoryId;
-        $this->price=$price;
-        $this->userId=$userId;
-        $this->imagePath=$imagePath;
+        $this->link=Database::getLink();
+    }
+    public function getAll(){
+        
+    }
+    public function show(){
+
+    }
+    public function create(){
+
+    }
+    public function update(){
+
+    }
+    public function delete(){
+
     }
 }
 ?>

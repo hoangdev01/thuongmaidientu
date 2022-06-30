@@ -1,18 +1,25 @@
 <?php
-class E_Chat
-{
-    public $id;
-    public $sendId;
-    public $reveiceId;
-    public $content;
-    public $filePath;
-    public function __construct($id, $sendId, $reveiceId, $content, $filePath)
+include_once("entity/E_Chat.php");
+include_once("Database.php");
+class Chat{
+    public function __construct()
     {
-        $this->id=$id;
-        $this->sendId=$sendId;
-        $this->reveiceId=$reveiceId;
-        $this->content=$content;
-        $this->filePath=$filePath;
+        $this->link=Database::getLink();
+    }
+    public function getAll(){
+        
+    }
+    public function show(){
+
+    }
+    public function create(){
+
+    }
+    public function update(){
+
+    }
+    public function delete(){
+
     }
 }
 ?>
