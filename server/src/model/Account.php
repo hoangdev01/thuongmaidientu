@@ -6,7 +6,21 @@ class Account{
     public function __construct(){
         $this->link = Database::getLink();
     }
-    public function getAllAccount(){
+    public function getAll(){
+        $sql = "select * from account";
+        $rs = mysqli_query($this->link, $sql);
+        $accounts=null;        
+        $i=0;
+        if(mysqli_num_rows($rs) > 0)
+            while($row = mysqli_fetch_array($rs)){
+                $accounts[$i++] = new E_Account(
+                    $row['id'], 
+                    $row['username'], 
+                    $row['password'], 
+                    $row['role'], 
+                    $row['active']);
+            }
+        return $accounts;
     }
     public function checkLogin($username, $password){
         $sql = "select * from account where username = '$username' and password = '$password'";
@@ -40,6 +54,11 @@ class Account{
     }
     public function updateRole($username, $password, $role){
         $sql = "update account set role='$role' where username='$username' and password='$password'";
+        $rs = mysqli_query($this->link, $sql);
+        mysqli_close($this->link);
+    }
+    public function delete($username){
+        $sql = "delete from account username='$username'";
         $rs = mysqli_query($this->link, $sql);
         mysqli_close($this->link);
     }

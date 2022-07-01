@@ -7,7 +7,7 @@ class E_Bill
     public $price;
     public $date;
     public $status;
-    public function __construct($id, $userId, $price, $date, $accountId, $status)
+    public function __construct($id, $userId, $price, $date, $status)
     {
         $this->id=$id;
         $this->userId=$userId;
