@@ -2,6 +2,18 @@
 
 Ứng dụng cung cấp dịch vụ mua bán, thanh toán trực tuyến
 
+Các chức năng đặc biệt trong ứng dụng:
+- Thanh toán
+- Đặt hàng
+- Giỏ hàng
+- Chat giữa nhân viên và khách hàng
+- Thống kê doanh thu
+- Đăng hàng mới
+- Đánh giá hàng hóa
+
+Ngôn ngữ sử dụng tại backend: PHP
+
+
 <h2>Database</h2>
 
 <img src='https://drive.google.com/uc?export=view&id=1c3sWEi1739-FqOEjPt-yKLmiqAVMWh5L' width='100%'>
