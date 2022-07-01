@@ -8,7 +8,7 @@ class User{
     }
     public function getAll(){
         $sql = "select * from user";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         $users=null;        
         $i=0;
         if(mysqli_num_rows($rs) > 0)
@@ -25,7 +25,7 @@ class User{
     }
     public function show($id){
         $sql = "select * from user where id = '$id'";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         $user=null;
         if(mysqli_num_rows($rs) > 0)
             while($row = mysqli_fetch_array($rs)){
@@ -42,7 +42,7 @@ class User{
     }
     public function showFromAccountId($accountId){
         $sql = "select * from user where accountId = '$accountId'";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         $user=null;
         if(mysqli_num_rows($rs) > 0)
             while($row = mysqli_fetch_array($rs)){
@@ -59,7 +59,7 @@ class User{
     }
     public function create($name, $birthday, $address, $accountId, $avatarPath){
         $sql = "insert into user(name, birthday, address, accountId, avatarPath) values('$name','$birthday','$address','$accountId', '$avatarPath')";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));
         mysqli_close($this->link);
     }
     public function update($accountId, $newName, $newBirthday, $newAddress, $newAccountId, $newAvatarPath){
@@ -70,7 +70,7 @@ class User{
                     address='$newAddress', 
                     avatarPath='$newAvatarPath') 
                 where accountId='$accountId'";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         mysqli_close($this->link);
     }
 }

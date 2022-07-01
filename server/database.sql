@@ -35,12 +35,12 @@ CREATE TABLE bill(
 CREATE TABLE category(  
     id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
     name TEXT NOT NULL,
-    desciption TEXT NULL
+    description TEXT NULL
 ) ;
 CREATE TABLE product(  
     id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
     name TEXT NOT NULL,
-    desciption TEXT NULL,
+    description TEXT NULL,
     amount int NOT NULL,
     categoryId int NULL,
     price int NOT NULL,

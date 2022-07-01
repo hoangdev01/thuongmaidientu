@@ -17,7 +17,7 @@ class AuthController{
             
         else {
             $_SESSION['user'] = $loginAccount;
-            echo json_encode(array("success"=>true, "message"=>"Login successful")); 
+            echo json_encode(array("success"=>true, "user"=>$loginAccount, "message"=>"Login successful")); 
         }
     }
     public function register($username, $password, $name, $birthday, $address, $avatarPath){
@@ -26,16 +26,36 @@ class AuthController{
             echo json_encode(array("success"=>false, "message"=> "require username and password")); 
             return;
         }   
+        if(!$name){
+            echo json_encode(array("success"=>false, "message"=> "require display name")); 
+            return;
+        }
         $Account = new Account();
-        $User = new User();
         $checkAccount = $Account->getAccountFromUsername($username);
         if($checkAccount)
             echo json_encode(array("success"=>false, "message"=> "Username already exist")); 
         else {
             $Account->create($username, $password);
-            $account=$Account->getAccountFromUsername($username);
-            $User->create($name||"", $birthday||"", $address||"", $account->id, $avatarPath||"");
+            $Account = new Account();
+            $checkAccount = $Account->getAccountFromUsername($username);
+            $User = new User();
+            $User->create($name, $birthday, $address, $checkAccount->id, $avatarPath);
+            $_SESSION['user'] = $checkAccount;
             echo json_encode(array("success"=>true, "message"=>"register successful")); 
         }
+    }
+    public function logout(){
+        header('Content-type: application/json');  
+        if(isset($_SESSION["user"])){
+            $_SESSION["user"]=null;           
+            echo json_encode(array("success"=>true, "message"=> "Logout successful")); 
+        }
+    }
+    public function checklogin(){
+        header('Content-type: application/json');  
+        if(isset($_SESSION["user"]))
+            echo json_encode(array("success"=>true, "logged" => true, "user"=>$_SESSION["user"])); 
+        else 
+            echo json_encode(array("success"=>false, "logged"=> false)); 
     }
 }

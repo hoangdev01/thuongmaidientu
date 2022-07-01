@@ -8,7 +8,7 @@ class BillDetail{
     }
     public function getAll(){
         $sql = "select * from bill_detail";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         $billDetails=null;        
         $i=0;
         if(mysqli_num_rows($rs) > 0)
@@ -23,7 +23,7 @@ class BillDetail{
     }
     public function showFromBillId($billId){
         $sql = "select * from bill_detail where billId='$billId'";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         $billDetails=null;        
         $i=0;
         if(mysqli_num_rows($rs) > 0)
@@ -38,17 +38,17 @@ class BillDetail{
     }
     public function create($billId, $productId, $amount) {
         $sql = "insert into bill_detail(billId, productId, amount) values('$billId', '$productId', '$amount')";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         mysqli_close($this->link);
     }
     public function update($id, $amount){
         $sql = "update bill_detail set amount='$amount' where id='$id'";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         mysqli_close($this->link);
     }
     public function delete($id){
         $sql = "delete from bill_detail where id='$id'";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         mysqli_close($this->link);
     }
 }

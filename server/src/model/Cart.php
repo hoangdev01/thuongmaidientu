@@ -8,7 +8,7 @@ class Cart{
     }
     public function getAll(){
         $sql = "select * from cart";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         $carts=null;        
         $i=0;
         if(mysqli_num_rows($rs) > 0)
@@ -23,7 +23,7 @@ class Cart{
     }
     public function getAllFromUser($userId){
         $sql = "select * from cart where userId='$userId'";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         $carts=null;        
         $i=0;
         if(mysqli_num_rows($rs) > 0)
@@ -41,17 +41,17 @@ class Cart{
     }
     public function create($userId, $productId, $amount) {
         $sql = "insert into cart(userId, productId, amount) values('$userId', '$productId', '$amount')";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         mysqli_close($this->link);
     }
     public function update($id, $amount){
         $sql = "update bill set amount='$amount' where id='$id'";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         mysqli_close($this->link);
     }
     public function delete($id){
         $sql = "delete from cart where id='$id'";
-        $rs = mysqli_query($this->link, $sql);
+        $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));;
         mysqli_close($this->link);
     }
 }
