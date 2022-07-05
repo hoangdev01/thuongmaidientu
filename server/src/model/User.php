@@ -62,7 +62,7 @@ class User{
         $rs = mysqli_query($this->link, $sql) or die(mysqli_error($this->link));
         mysqli_close($this->link);
     }
-    public function update($accountId, $newName, $newBirthday, $newAddress, $newAccountId, $newAvatarPath){
+    public function update($accountId, $newName, $newBirthday, $newAddress, $newAvatarPath){
         $sql = "update user 
                 set 
                     name='$newName', 
